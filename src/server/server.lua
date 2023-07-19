@@ -11,8 +11,7 @@ RegisterNetEvent('mongo:protector:server:requestCode', function(invoking, key)
             if (not Protector.IsCodeLoaded(source, invoking, key)) then
                 Protector.SendDebug(invoking .. ' | ' .. key .. ' | ' .. GetPlayerName(source) .. ' wurde Clientside code gesendet!')
                 Protector.AddLoadedCode(source, invoking, key);
-                TriggerClientEvent("mongo:client:protector:loadCode:" .. invoking .. ':' .. key, source,
-                    Protector.Scripts[invoking][key]);
+                TriggerClientEvent("mongo:client:protector:loadCode:" .. invoking .. ':' .. key, source, Protector.Scripts[invoking][key]);
             else
                 Protector.SendDebug(invoking .. ' | ' .. key .. ' | Es wurde versucht vermehrt den Code zu laden!')
             end
