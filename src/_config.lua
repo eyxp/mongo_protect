@@ -1,0 +1,2 @@
+Config = {};
+Config.debug = true;
