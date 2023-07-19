@@ -8,9 +8,7 @@ Mongo.AddClientLoader = function(keyFile)
         TriggerServerEvent('mongo:protector:server:requestCode', GetCurrentResourceName(), keyFile);
     end)
 
-    RegisterNetEvent('mongo:client:protector:loadCode:' .. GetCurrentResourceName(), function (file, code)
-        if(file == keyFile) then
-            assert(load(code))();
-        end
+    RegisterNetEvent('mongo:client:protector:loadCode:' .. GetCurrentResourceName() .. ':' .. keyFile, function (code)
+        assert(load(code))();
     end)
 end
