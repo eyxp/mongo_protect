@@ -9,8 +9,7 @@ RegisterNetEvent('mongo:protector:server:requestCode', function(invoking, key)
                 Protector.Sendet[source] = {};
             end
             if (not Protector.IsCodeLoaded(source, invoking, key)) then
-                Protector.SendDebug(invoking ..
-                ' | ' .. key .. ' | ' .. GetPlayerName(source) .. ' wurde Clientside code gesendet!')
+                Protector.SendDebug(invoking .. ' | ' .. key .. ' | ' .. GetPlayerName(source) .. ' wurde Clientside code gesendet!')
                 Protector.AddLoadedCode(source, invoking, key);
                 TriggerClientEvent("mongo:client:protector:loadCode:" .. invoking .. ':' .. key, source,
                     Protector.Scripts[invoking][key]);
