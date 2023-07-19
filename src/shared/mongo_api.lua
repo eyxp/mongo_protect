@@ -1,5 +1,4 @@
 Mongo = {};
-Mongo.LoadedCode = {};
 
 Mongo.AddClientLoader = function(keyFile)
     Citizen.CreateThread(function()
