@@ -51,8 +51,7 @@ end)
 
 
 Protector.SendDebug = function(message)
-    if (not Config.debug) then return end
-    ;
+    if (not Config.debug) then return end;
     print('Mongo | ' .. message)
 end
 
