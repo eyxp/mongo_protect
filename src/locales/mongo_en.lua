@@ -1,4 +1,4 @@
-Locales = {} or Locales
+Locales = Locales or {};
 
 Locales['en'] = {
     

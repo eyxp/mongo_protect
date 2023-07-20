@@ -1,8 +1,8 @@
-Locales = {} or Locales
+Locales = Locales or {};
 
 Locales['de'] = {
     ['stopped_own_resource'] = 'Der Protector wurde erfolgreich gestoppt!',
-    ['script_added'] = "%s | %s wurde erfolgreich hinzugefügt!'",
+    ['script_added'] = '%s | %s wurde erfolgreich hinzugefügt!',
     ['resource_cache_clear'] = 'Die Resource %s wurde aus dem Cache gelöscht!',
     ['script_not_found'] = '%s | Das Script wurde nicht richtig hinzugefügt!',
     ['file_not_found'] = '%s | %s wurde nicht gefunden!',

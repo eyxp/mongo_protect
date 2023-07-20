@@ -79,6 +79,8 @@ end
 
 
 Protector.GetMsg = function (key)
+    local loc = Locales[Config.Local];
+    if(loc == nil) then return "Error: Local not found " .. Config.Local end
     local msg = Locales[Config.Local][key];
     if(msg == nil) then  return 'Error: Try to get nil key (' .. key .. ')' end
     return msg;
