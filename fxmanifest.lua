@@ -5,7 +5,7 @@ author '💗 Jonass'
 description 'Protect your Server from dumpers!'
 
 server_scripts {
-    'src/locales/*.lua',
+    'src/locales/mongo_*.lua',
     'src/_config.lua',
     'src/server/server.lua'
 }
