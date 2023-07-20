@@ -10,5 +10,6 @@ server_scripts {
 }
 
 client_scripts {
+    'src/locales/mongo_*.lua',
     'src/shared/mongo_api.lua',
 }

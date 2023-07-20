@@ -9,23 +9,23 @@ RegisterNetEvent('mongo:protector:server:requestCode', function(invoking, key)
                 Protector.Sendet[source] = {};
             end
             if (not Protector.IsCodeLoaded(source, invoking, key)) then
-                Protector.SendDebug(invoking .. ' | ' .. key .. ' | ' .. GetPlayerName(source) .. ' wurde Clientside code gesendet!')
+                Protector.SendDebug(Protector.GetMsg('sended_code'):format(invoking, key, GetPlayerName(source)))
                 Protector.AddLoadedCode(source, invoking, key);
                 TriggerClientEvent("mongo:client:protector:loadCode:" .. invoking .. ':' .. key, source, Protector.Scripts[invoking][key]);
             else
-                Protector.SendDebug(invoking .. ' | ' .. key .. ' | Es wurde versucht vermehrt den Code zu laden!')
+                Protector.SendDebug(Protector.GetMsg('file_overload'):format(invoking, key));
             end
         else
-            Protector.SendDebug(invoking .. ' | ' .. key .. ' wurde nicht gefunden!')
+            Protector.SendDebug(Protector.GetMsg('file_not_found'):format(invoking, key));
         end
     else
-        Protector.SendDebug(invoking .. ' | Das Script wurde nicht richtig hinzugefügt!')
+        Protector.SendDebug(Protector.GetMsg('script_not_found'):format(invoking));
     end
 end)
 
 AddEventHandler('onResourceStop', function(resourceName)
     if (resourceName == GetCurrentResourceName()) then
-        Protector.SendDebug('Der Protector wurde erfolgreich gestoppt!');
+        Protector.SendDebug(Protector.GetMsg('stopped_own_resource'));
         return;
     end
     if (Protector.Scripts[resourceName]) then
@@ -35,7 +35,7 @@ AddEventHandler('onResourceStop', function(resourceName)
                 Protector.Sendet[index][resourceName] = nil;
             end
         end
-        Protector.SendDebug('Die Resource ' .. resourceName .. ' wurde aus dem Cache gelöscht!');
+        Protector.SendDebug(Protector.GetMsg('resource_cache_clear'):format(resourceName));
     end
 end)
 
@@ -44,7 +44,7 @@ exports('addClientCode', function(keyFile, code)
         Protector.Scripts[GetInvokingResource()] = {};
     end
     Protector.Scripts[GetInvokingResource()][keyFile] = code;
-    Protector.SendDebug(GetInvokingResource() .. ' | ' .. keyFile .. ' wurde erfolgreich hinzugefügt!')
+    Protector.SendDebug(Protector.GetMsg('script_added'):format(GetInvokingResource(), keyFile));
 end)
 
 
@@ -75,4 +75,13 @@ Protector.AddLoadedCode = function(source, invoking, key)
         Protector.Sendet[source][invoking] = {};
     end
     Protector.Sendet[source][invoking][key] = true;
+end
+
+
+Protector.GetMsg = function (key)
+    local msg = Locales[Config.Local][key];
+    if(msg == nil) then 
+        return 'Error: Try to get nil key (' .. key .. ')';
+    end
+    return msg;
 end
