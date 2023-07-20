@@ -80,8 +80,6 @@ end
 
 Protector.GetMsg = function (key)
     local msg = Locales[Config.Local][key];
-    if(msg == nil) then 
-        return 'Error: Try to get nil key (' .. key .. ')';
-    end
+    if(msg == nil) then  return 'Error: Try to get nil key (' .. key .. ')' end
     return msg;
 end
