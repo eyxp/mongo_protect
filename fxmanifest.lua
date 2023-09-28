@@ -1,7 +1,7 @@
 fx_version 'adamant'
 game 'gta5'
 version '1.0.0-RELEASE'
-author '💗 Jonass'
+author '💗 Jonass Test'
 description 'Protect your Server from dumpers!'
 
 server_scripts {
