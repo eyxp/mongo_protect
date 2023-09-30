@@ -1,6 +1,6 @@
 fx_version 'adamant'
 game 'gta5'
-version '1.0.2-RELEASE'
+version '1.0.3-RELEASE'
 author '💗 Jonas'
 description 'Protect your Server from dumpers!'
 
