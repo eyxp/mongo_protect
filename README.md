@@ -17,7 +17,7 @@ Mongo Protect ist ein Fivem Script welches dir die Möglichkeit bietet, einfach 
 
 ## Wie funktioniert das Script?
 
-Dein Clientcode kann durch das betreten deines Servers durch ein "Client"/"Modmenu" ausgelsen werden, da dies lokal bei dir auf deinem PC gespeichert wird. Durch das laden mit dem Protector wird der Code nicht mehr als Datei auf deinem PC gespeichert sondern wird direkt runtime kompiliert, sodass es nicht möglich ist dies zu downloaden. 
+Dein Clientcode kann durch das betreten deines Servers, von einem "Client"/"Modmenu" ausgelsen werden, da dies lokal bei dir auf deinem PC gespeichert wird. Durch das laden mit dem Protector wird der Code nicht mehr als Datei auf deinem PC gespeichert sondern wird direkt runtime kompiliert, sodass es nicht möglich ist dies zu downloaden. 
 ## Nachteil
 
 Bei jedem Vorteil gibt es auch einen kleine Nachteil, dieser Nachteil ist jedoch vermeidbar. Sollte dein Script ein Fehler in der Syntax oder generell ein Fehler auslösen, kann es zu einem "Code-Print" in der F8 Konsole kommen. Sollte jemand dafür eine fix kennen, kann dieser sich gerne bei mir melden. Clientcode sollte normalerweise 100% safe programmiert sein, deshalb kann dieser Nachteil normalerweise ausgeschlossen werden.
