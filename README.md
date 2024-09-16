@@ -6,7 +6,9 @@ Mongo Protect ist ein Fivem Script welches dir die Möglichkeit bietet, einfach 
 - Sehr einfache Implementierung
 - Starke Performance
 - Keine Server Dumps mehr im Internet
-- 100% configurable
+- 100% Konfigurierbar
+- Keine Möglichkeit Modder Code doppelt zu laden
+
 ## Wie funktioniert das Script?
 
 Dein Clientcode kann sobald es beim laden des Servers durch ein "Client"/"Modmenu" ausgelsen werden, da dies lokal bei dir auf deinem PC gespeichert wird. Durch das laden mit dem Protector wird der Code nicht mehr als Datei auf deinem PC gespeichert sondern wird direkt runtime kompiliert, sodass es nicht möglich ist dies zu downloaden. 
@@ -22,7 +24,7 @@ Bei jedem Vorteil gibt es auch einen kleine Nachteil, dieser Nachteil ist jedoch
 ## Installation
 
 src/deinscript/server.lua
-```
+```lua
 // Füge dies zu deinem Serverside script hinzu
 
 @client.lua => Gebe deinem Code einen Namen, dies gibt die Möglichkeit mehrere Client Datein zu nutzen
@@ -53,14 +55,14 @@ end)
 ```
 
 src/fxmanifest.lua
-```
+```lua
 shared_scripts {
   '@mongo_protect/shared/mongo_api.lua',
 }
 ```
 
 src/client/client.lua
-```
+```lua
 
 @client.lua => Gebe dein Dateinamen an welchen du bereits in der Server Datei angegeben hast
 
@@ -71,7 +73,7 @@ Mongo.AddClientLoader('client.lua')
 
 Beim dumpen einer Resource bekommt der "Modder" nur noch folgende Datei zum anschauen.
 
-```
+```lua
     Citizen.CreateThread(function()
         while not NetworkIsSessionStarted() do 
             Wait(0) 
