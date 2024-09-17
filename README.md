@@ -43,19 +43,13 @@ exports['mongo_protect']:addClientCode('client.lua',
 
 'Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)  -- Auf jede Frame aktualisieren
+        Citizen.Wait(0)
 
-        -- Wenn der Spieler die Taste "E" drückt
-        if IsControlJustPressed(1, 38) then  -- 38 ist die Taste E (kann angepasst werden)
-            -- Eine Nachricht im Chat anzeigen
+        if IsControlJustPressed(1, 38) then 
             TriggerEvent('chatMessage', "^1Du hast die Taste E gedrückt!")
-
-            -- Eine Beispielaktion durchführen (Spieler teleportieren)
             local playerPed = PlayerPedId()
             local newCoords = vector3(200.0, 200.0, 100.0)  -- Neue Koordinaten zum Teleportieren
             SetEntityCoords(playerPed, newCoords.x, newCoords.y, newCoords.z, false, false, false, true)
-
-            -- Info im Clientlog anzeigen
             print("Spieler wurde teleportiert!")
         end
     end
