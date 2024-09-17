@@ -1,43 +1,44 @@
 # Mongo Protect
 
-Mongo Protect ist ein Fivem Script welches dir die Möglichkeit bietet, einfach und performant client scripts vom dumpen zu schützen. Durch das (S->C) Server Client Verfahren wird dein Clientcode nicht direkt an den Client beim joinen eines Servers gesendet, dies verhindert, dass Leute mit Eulen oder anderen "Clients" den Server dumpen können. Diese Technologie wird von einigen großen Servern bereits genutzt. 
+Mongo Protect is a FiveM script that provides a simple and efficient way to protect client scripts from being dumped. By utilizing a Server-to-Client (S->C) procedure, the client code is not directly sent to the client upon joining a server. This prevents individuals using tools like Eulen or other "clients" from dumping the server's code. This technology is already being used by several major servers.
 
 
 ## Fragen?
 
-- Bei Fragen o.Ä meldet euch gerne in einem Issue
+- If you have any questions or issues, feel free to open an issue.
 
 ## Features
 
-- Sehr einfache Implementierung
-- Starke Performance
-- Keine Server Dumps mehr im Internet
-- 100% Konfigurierbar
-- Keine Möglichkeit Modder Code doppelt zu laden
-- Keine Probleme beim reloaden einer Resource, der Clientcode wird dann erneut versendet.
+- Very easy implementation
+- Strong performance
+- No more server dumps available online
+- 100% configurable
+- No possibility for modders to load code twice
+- No issues when reloading a resource, the client code will be re-sent.
 
 ## Wie funktioniert das Script?
 
-Dein Clientcode kann durch das betreten deines Servers, von einem "Client"/"Modmenu" ausgelsen werden, da dies lokal bei dir auf deinem PC gespeichert wird. Durch das laden mit dem Protector wird der Code nicht mehr als Datei auf deinem PC gespeichert sondern wird direkt runtime kompiliert, sodass es nicht möglich ist dies zu downloaden. 
+Your client code can be read by a "client" or "mod menu" when joining your server, as it is stored locally on your PC. However, by using the protector, the code is no longer saved as a file on your PC. Instead, it is compiled at runtime, making it impossible to download or access.
+
 ## Nachteil
 
-Bei jedem Vorteil gibt es auch einen kleinen Nachteil, dieser Nachteil ist jedoch vermeidbar. Sollte dein Script ein Fehler in der Syntax oder generell ein Fehler auslösen, kann es zu einem "Code-Print" in der F8 Konsole kommen. Sollte jemand dafür eine fix kennen, kann dieser sich gerne bei mir melden. Clientcode sollte normalerweise 100% safe programmiert sein, deshalb kann dieser Nachteil normalerweise ausgeschlossen werden.
+With every advantage, there's also a small drawback, though this one is avoidable. If your script contains a syntax error or triggers a general issue, it might result in a "code print" in the F8 console. If anyone knows a fix for this, feel free to reach out. Ideally, client code should be 100% error-free, so this drawback can typically be ruled out.
 
 
 ## Dependencies (Abhängigkeiten)
 
-- Es werden keine anderen Scripts benötigt und dies ist für alle Plattformen komaptibel (ESX, etc...)
+- No additional scripts are required, and it is compatible with all platforms (ESX, etc.).
 
 ## Installation
 
-WICHTIG: Der Clientcode darf nicht mehr in der fxmanifest.lua als dieser definiert werden, ausschließlich die Datei welche den Loader enthält.
+Important: The client code should no longer be defined in the fxmanifest.lua, except for the file containing the loader.
 
 src/deinscript/server.lua
 ```lua
-// Füge dies zu deinem Serverside script hinzu
+// Add the following to your server-side script:
 
-@client.lua => Gebe deinem Code einen Namen, dies gibt die Möglichkeit mehrere Client Datein zu nutzen
-@Code => Gebe dein Code als 2 Parameter mit in die Methode
+@client.lua: Assign a name to your client code file. This allows you to use multiple client files.
+@Code: Pass your code as the second parameter in the method.
 
 local code = [[
     Citizen.CreateThread(function()
@@ -45,11 +46,11 @@ local code = [[
             Citizen.Wait(0)
     
             if IsControlJustPressed(1, 38) then 
-                TriggerEvent('chatMessage', "^1Du hast die Taste E gedrückt!")
+                TriggerEvent('chatMessage', "^1You pressed the E key.!")
                 local playerPed = PlayerPedId()
-                local newCoords = vector3(200.0, 200.0, 100.0)  -- Neue Koordinaten zum Teleportieren
+                local newCoords = vector3(200.0, 200.0, 100.0)
                 SetEntityCoords(playerPed, newCoords.x, newCoords.y, newCoords.z, false, false, false, true)
-                print("Spieler wurde teleportiert!")
+                print("Player has been teleported.!")
             end
         end
     end)
@@ -68,14 +69,14 @@ shared_scripts {
 src/client/client.lua
 ```lua
 
-@client.lua => Gebe dein Dateinamen an welchen du bereits in der Server Datei angegeben hast
+@client.lua: Specify the filename you have already indicated in the server file.
 
 Mongo.AddClientLoader('client.lua')
 ```
 
 ## Resultat
 
-Beim dumpen einer Resource bekommt der "Modder" nur noch folgende Datei zum anschauen.
+When dumping a resource, the "modder" will only see the following file to review.
 
 ```lua
 Mongo.AddClientLoader('client.lua');
