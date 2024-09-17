@@ -33,7 +33,7 @@ With every advantage, there's also a small drawback, though this one is avoidabl
 
 Important: The client code should no longer be defined in the fxmanifest.lua, except for the file containing the loader.
 
-src/deinscript/server.lua
+src/server/server.lua
 ```lua
 // Add the following to your server-side script:
 
