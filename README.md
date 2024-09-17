@@ -3,7 +3,7 @@
 Mongo Protect is a FiveM script that provides a simple and efficient way to protect client scripts from being dumped. By utilizing a Server-to-Client (S->C) procedure, the client code is not directly sent to the client upon joining a server. This prevents individuals using tools like Eulen or other "clients" from dumping the server's code. This technology is already being used by several major servers.
 
 
-## Fragen?
+## Questions?
 
 - If you have any questions or issues, feel free to open an issue.
 
@@ -16,11 +16,11 @@ Mongo Protect is a FiveM script that provides a simple and efficient way to prot
 - No possibility for modders to load code twice
 - No issues when reloading a resource, the client code will be re-sent.
 
-## Wie funktioniert das Script?
+## How does the script work?
 
 Your client code can be read by a "client" or "mod menu" when joining your server, as it is stored locally on your PC. However, by using the protector, the code is no longer saved as a file on your PC. Instead, it is compiled at runtime, making it impossible to download or access.
 
-## Nachteil
+## Drawback
 
 With every advantage, there's also a small drawback, though this one is avoidable. If your script contains a syntax error or triggers a general issue, it might result in a "code print" in the F8 console. If anyone knows a fix for this, feel free to reach out. Ideally, client code should be 100% error-free, so this drawback can typically be ruled out.
 
@@ -74,7 +74,7 @@ src/client/client.lua
 Mongo.AddClientLoader('client.lua')
 ```
 
-## Resultat
+## Result
 
 When dumping a resource, the "modder" will only see the following file to review.
 
