@@ -40,19 +40,19 @@ src/deinscript/server.lua
 @Code => Gebe dein Code als 2 Parameter mit in die Methode
 
 local code = [[
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-
-        if IsControlJustPressed(1, 38) then 
-            TriggerEvent('chatMessage', "^1Du hast die Taste E gedrückt!")
-            local playerPed = PlayerPedId()
-            local newCoords = vector3(200.0, 200.0, 100.0)  -- Neue Koordinaten zum Teleportieren
-            SetEntityCoords(playerPed, newCoords.x, newCoords.y, newCoords.z, false, false, false, true)
-            print("Spieler wurde teleportiert!")
+    Citizen.CreateThread(function()
+        while true do
+            Citizen.Wait(0)
+    
+            if IsControlJustPressed(1, 38) then 
+                TriggerEvent('chatMessage', "^1Du hast die Taste E gedrückt!")
+                local playerPed = PlayerPedId()
+                local newCoords = vector3(200.0, 200.0, 100.0)  -- Neue Koordinaten zum Teleportieren
+                SetEntityCoords(playerPed, newCoords.x, newCoords.y, newCoords.z, false, false, false, true)
+                print("Spieler wurde teleportiert!")
+            end
         end
-    end
-end)
+    end)
 ]]
 
 exports['mongo_protect']:addClientCode('client.lua', code)
