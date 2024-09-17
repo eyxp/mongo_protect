@@ -14,6 +14,7 @@ Mongo Protect ist ein Fivem Script welches dir die Möglichkeit bietet, einfach 
 - Keine Server Dumps mehr im Internet
 - 100% Konfigurierbar
 - Keine Möglichkeit Modder Code doppelt zu laden
+- Keine Probleme beim reloaden einer Resource, der Clientcode wird dann erneut versendet.
 
 ## Wie funktioniert das Script?
 
@@ -28,6 +29,8 @@ Bei jedem Vorteil gibt es auch einen kleinen Nachteil, dieser Nachteil ist jedoc
 - Es werden keine anderen Scripts benötigt und dies ist für alle Plattformen komaptibel (ESX, etc...)
 
 ## Installation
+
+WICHTIG: Der Clientcode darf nicht mehr in der fxmanifest.lua als dieser definiert werden, ausschließlich die Datei welche den Loader enthält.
 
 src/deinscript/server.lua
 ```lua
