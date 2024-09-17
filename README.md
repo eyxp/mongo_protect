@@ -39,9 +39,8 @@ src/deinscript/server.lua
 @client.lua => Gebe deinem Code einen Namen, dies gibt die Möglichkeit mehrere Client Datein zu nutzen
 @Code => Gebe dein Code als 2 Parameter mit in die Methode
 
-exports['mongo_protect']:addClientCode('client.lua', 
-
-'Citizen.CreateThread(function()
+local code = [[
+Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
 
@@ -54,7 +53,9 @@ exports['mongo_protect']:addClientCode('client.lua',
         end
     end
 end)
-')
+]]
+
+exports['mongo_protect']:addClientCode('client.lua', code)
 ```
 
 src/fxmanifest.lua
