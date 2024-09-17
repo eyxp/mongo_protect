@@ -83,14 +83,5 @@ Mongo.AddClientLoader('client.lua')
 Beim dumpen einer Resource bekommt der "Modder" nur noch folgende Datei zum anschauen.
 
 ```lua
-    Citizen.CreateThread(function()
-        while not NetworkIsSessionStarted() do 
-            Wait(0) 
-        end
-        TriggerServerEvent('mongo:protector:server:requestCode', GetCurrentResourceName(), keyFile);
-    end)
-
-    RegisterNetEvent('mongo:client:protector:loadCode:' .. GetCurrentResourceName() .. ':' .. keyFile, function (code)
-        assert(load(code))();
-    end)
+Mongo.AddClientLoader('client.lua');
 ```
