@@ -1,6 +1,6 @@
 # Mongo Protect
 
-Mongo Protect is a FiveM script that provides a simple and efficient way to protect client scripts from being dumped. By utilizing a Server-to-Client (S->C) procedure, the client code is not directly sent to the client upon joining a server. This prevents individuals using tools like Eulen or other "clients" from dumping the server's code. This technology is already being used by several major servers.
+Mongo protect is a FiveM script that provides a simple and efficient way to protect client scripts from being dumped. By utilizing a Server-to-Client (S->C) procedure, the client code is not directly sent to the client upon joining a server. This prevents individuals using tools like Eulen or other "clients" from dumping the server's code. This technology is already being used by several major servers.
 
 
 ## Questions?
