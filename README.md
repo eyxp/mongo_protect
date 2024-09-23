@@ -25,7 +25,7 @@ Your client code can be read by a "client" or "mod menu" when joining your serve
 With every advantage, there's also a small drawback, though this one is avoidable. If your script contains a syntax error or triggers a general issue, it might result in a "code print" in the F8 console. If anyone knows a fix for this, feel free to reach out. Ideally, client code should be 100% error-free, so this drawback can typically be ruled out.
 
 
-## Dependencies (Abhängigkeiten)
+## Dependencies
 
 - No additional scripts are required, and it is compatible with all platforms (ESX, etc.).
 
